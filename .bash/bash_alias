@@ -1,0 +1,14 @@
+#!/bin/bash
+if [[ $PLATFORM == 'MacOSX' || $PLATFORM == 'FreeBSD' ]]; then
+    alias ls="ls -G"
+elif [[ $PLATFORM == 'Linux' ]]; then
+    alias ls="ls --color"
+fi
+alias l="ls"
+alias c="clear; pwd; ls"
+alias h="history 20"
+
+# Date-time commands
+alias short-date="date +'%Y%m%d'"
+alias short-date-us="date +'%m/%d/%y'"
+alias short-date-intl="date +'%m/%d/%y'"

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+REDWOOD="$HOME/Archive/LEEPS/redwood/src/"
+PYTHONPATH="$REDWOOD:$PYTHONPATH"
+export PYTHONPATH
+export GOROOT="$HOME/src/go"
+export GOARCH=386
+export GOBIN="$HOME/local/bin"
+export PATH="$GOROOT/bin:$GOBIN:$PATH"
+export GONEWROOT="$HOME/Archive/Code/GoNew"
+export GOMAXTHREADS=5
+export PATH="$HOME/.gem/1.8/bin:$PATH"

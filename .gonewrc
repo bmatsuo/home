@@ -1,0 +1,13 @@
+# Generated configuration for gonew.
+
+[variables]
+name: Bryan Matsuo
+email: bmatsuo@soe.ucsc.edu
+
+[general]
+repo: git
+host: github
+hostuser: bmatsuo
+license: newbsd
+templates: /home/bryan/Archive/Code/Go/owned/gonew/templates
+markdown: true
