@@ -5,10 +5,10 @@
 [alias]
     d=diff --color
     sh=show --color
-    l=log --oneline -n 5
-    ll=log --oneline -n 10
-    lll=log --oneline
-    ln=l -n
+    l=log --color --oneline -n 5
+    ll=log --color --oneline -n 10
+    lll=log --color --oneline
+    ln=l --color -n
     st=status
     br=branch
     co=checkout
