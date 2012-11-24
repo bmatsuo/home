@@ -1,0 +1,18 @@
+[user]
+	name = Bryan Matsuo
+    email = bryan.matsuo@gmail.com
+
+[alias]
+    di=diff --color
+    sh=show --color
+    l=log --oneline
+    ln=l -n
+    st=status
+    br=branch
+    co=checkout
+    ci=commit
+    cia=commit -a
+    gr=log --oneline --graph --color
+
+[core]
+	excludesfile = /Users/bryan/.gitexcludes

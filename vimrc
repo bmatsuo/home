@@ -1,3 +1,17 @@
+"""""""""""""""""""""""""""""VUNDLER SETTINGS""""""""""""""""""""""""""""
+filetype off " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" required
+Bundle 'gmarik/vundle'
+
+" personal plugins
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-fugitive'
+
+filetype plugin indent on     " required!
 
 """"""""""""""""""""""""""""""BASIC SETTINGS"""""""""""""""""""""""""""""
 
