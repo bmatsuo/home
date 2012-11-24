@@ -3,9 +3,11 @@
     email = bryan.matsuo@gmail.com
 
 [alias]
-    di=diff --color
+    d=diff --color
     sh=show --color
-    l=log --oneline
+    l=log --oneline -n 5
+    ll=log --oneline -n 10
+    lll=log --oneline
     ln=l -n
     st=status
     br=branch
