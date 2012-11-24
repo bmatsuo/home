@@ -11,17 +11,17 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-fugitive'
 
-filetype plugin indent on     " required!
+filetype plugin indent on " required!
 
 """"""""""""""""""""""""""""""BASIC SETTINGS"""""""""""""""""""""""""""""
 
 " Experimental gofmt command.
-nmap <F10> mo:%!gofmt -tabindent=false -tabwidth=4<CR>g`o
+nmap <F10> mo:%!gofmt<CR>g`o
 command! Gofmt call s:MyGoFormat()
 
 function! s:MyGoFormat()
     let view = winsaveview()
-    %!gofmt -spaces=true -tabindent=true -tabwidth=4
+    %!gofmt
     if v:shell_error
         %| " output errors returned by gofmt
            " TODO(dchest): perhaps, errors should go to quickfix
@@ -113,12 +113,27 @@ endfunction
 " Mapping Keys.
     " Set the leader key to one convinient on dvorak.
     let mapleader = ","
-    " buffer switch mapping
+
+    " write/quit controls
+    map <leader>cc :w<return>
+    map <leader>cq :q<return>
+    map <leader>cQ :q!<return>
+
+    " split navigation/control
+    map <leader>c <C-w>
+
+    " buffer mappings
     map <leader>b :buffers<CR>:buffer<Space>
+    map <leader>e :edit<Space>
+
+    " fugitive mappings
+    map <leader>gc :Gcommit<return>
+    map <leader>gd :Gdiff<return>
+    map <leader>gs :Gstatus<return>
+
     " NERDTree toggle mapping
     map <leader>d :NERDTreeToggle<return>
-    " qtemp template insertion
-    map <leader>t I<return><esc>d0kV!qtemp<Space>
+
     " Copy paste map
     if platform == "MacOSX"
         map <leader>p A<return><esc>V!pbpaste<return>
@@ -132,11 +147,13 @@ endfunction
         map <leader>x V!xclip -i<return>
     endif " TODO: Add other operating systems if possbile.
 
-    map <leader>f :Gofmt<return>
+    "format mapping (<leader>f)
+    if has("autocmd")
+        au BufNewFile,BufRead *.go   map <leader>f :Gofmt<return>
+        au BufNewFile,BufRead *.json map <leader>f :1,$!ruby -e 'require "json"; puts JSON.pretty_generate(JSON.parse($stdin.read))'<return>
+    end
 
 if has("autocmd")
-
-" Filetype options (au = autocmd)
     " File types where tabs are important
     au BufNewFile,BufRead  Makefile,makefile set noexpandtab
     au BufNewFile,BufRead  *.rdb set noexpandtab
@@ -156,8 +173,9 @@ if has("autocmd")
     au BufNewFile,BufRead *.perl,*.pl,*.pm  set syntax=perl
     au BufNewFile,BufRead *.py              set syntax=python
     au BufNewFile,BufRead *.rb              set syntax=ruby
+
+    " files with special tab preferences
     au BufNewFile,BufRead *.rb,*.erb,*.rhtml set tabstop=2
     au BufNewFile,BufRead *.rb,*.erb,*.rhtml set shiftwidth=2
-
     au BufNewFile,BufRead *.go set noexpandtab
 endif
