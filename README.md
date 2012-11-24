@@ -13,8 +13,6 @@ several variables and aliases for a uniform cross-platform experience.
 
 A custom vimrc.
 
-**TODO** Add plug-ins to repository.
-
 * matplotlibrc
 
 make pretty figures with matplotlib.
@@ -25,6 +23,8 @@ everything except an actually rvm installation.
 
 Setup
 =====
+
+    ln -s /path/to/repo/home/config ~/.config
 
     ln -s /path/to/repo/home/bashrc.d ~/.bashrc.d
     ln -s /path/to/repo/home/bashrc ~/.bashrc
