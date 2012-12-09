@@ -10,6 +10,7 @@ Bundle 'gmarik/vundle'
 " personal plugins
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-fugitive'
+Bundle 'fsouza/go.vim'
 
 filetype plugin indent on " required!
 
