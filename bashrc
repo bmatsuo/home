@@ -17,8 +17,14 @@ case `uname` in
     'FreeBSD') PLATFORM='FreeBSD';;
 esac
 
+# Initialization
 if [ -d "$HOME/.bashrc.d/" ]; then
     for s in `sort <(find $HOME/.bashrc.d/ | egrep '\.sh$' | egrep -v '(MacOSX|Linux|Solaris|FreeBSD)\.sh$' && find $HOME/.bashrc.d/ | egrep "$PLATFORM\\.sh\$") | uniq`; do
         source $s
     done
+fi
+
+# Initialization specific to the local machine
+if [ -x "$HOME/.bashrc.local" ]; then
+    source  "$HOME/.bashrc.local"
 fi
