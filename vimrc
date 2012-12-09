@@ -114,6 +114,9 @@ endfunction
     " Set the leader key to one convinient on dvorak.
     let mapleader = ","
 
+    " disable search highlights
+    map <leader>h :noh<return>
+
     " write/quit controls
     map <leader>cc :w<return>
     map <leader>cq :q<return>
