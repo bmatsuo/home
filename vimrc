@@ -39,8 +39,8 @@ endfunction
     set printoptions=number:y
 
 " Line numbers
-    set number
-    set numberwidth=6
+    set relativenumber
+    set numberwidth=3
 
 " Ruler
     set ruler           " show the ruler
