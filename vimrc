@@ -11,6 +11,7 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-fugitive'
 Bundle 'fsouza/go.vim'
+Bundle 'kien/ctrlp.vim'
 
 filetype plugin indent on " required!
 
@@ -111,6 +112,65 @@ endfunction
         let g:Tex_ViewRule_pdf = "xpdf 2>/dev/null"
     endif
 
+" ctrlp
+    "let g:ctrlp_map = '<c-p>'
+    let g:ctrlp_cmd = 'CtrlPMixed'
+    "let g:ctrlp_working_path_mode = 'ra'
+    "let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
+    "let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
+    "set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+    "set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+    "
+    "let g:ctrlp_root_markers = ['.cabal', 'Gemfile', '.git']
+    "
+    "let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+    "let g:ctrlp_custom_ignore = {
+    "   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    "   \ 'file': '\v\.(exe|so|dll)$',
+    "   \ 'link': 'some_bad_symbolic_links',
+    "   \ }
+    "if platform == \"MinGW\"
+    "    let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
+    "else
+    "   let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
+    "end
+    "let g:ctrlp_prompt_mappings = {
+    "   \ 'PrtBS()':              ['<bs>', '<c-]>'],
+    "   \ 'PrtDelete()':          ['<del>'],
+    "   \ 'PrtDeleteWord()':      ['<c-w>'],
+    "   \ 'PrtClear()':           ['<c-u>'],
+    "   \ 'PrtSelectMove("j")':   ['<c-j>', '<down>'],
+    "   \ 'PrtSelectMove("k")':   ['<c-k>', '<up>'],
+    "   \ 'PrtSelectMove("t")':   ['<Home>', '<kHome>'],
+    "   \ 'PrtSelectMove("b")':   ['<End>', '<kEnd>'],
+    "   \ 'PrtSelectMove("u")':   ['<PageUp>', '<kPageUp>'],
+    "   \ 'PrtSelectMove("d")':   ['<PageDown>', '<kPageDown>'],
+    "   \ 'PrtHistory(-1)':       ['<c-n>'],
+    "   \ 'PrtHistory(1)':        ['<c-p>'],
+    "   \ 'AcceptSelection("e")': ['<cr>', '<2-LeftMouse>'],
+    "   \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>'],
+    "   \ 'AcceptSelection("t")': ['<c-t>'],
+    "   \ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>'],
+    "   \ 'ToggleFocus()':        ['<c-j><k>'],
+    "   \ 'ToggleRegex()':        ['<c-r>'],
+    "   \ 'ToggleByFname()':      ['<c-d>'],
+    "   \ 'ToggleType(1)':        ['<c-f>', '<c-up>'],
+    "   \ 'ToggleType(-1)':       ['<c-b>', '<c-down>'],
+    "   \ 'PrtExpandDir()':       ['<tab>'],
+    "   \ 'PrtInsert("c")':       ['<MiddleMouse>', '<insert>'],
+    "   \ 'PrtInsert()':          ['<c-\>'],
+    "   \ 'PrtCurStart()':        ['<c-a>'],
+    "   \ 'PrtCurEnd()':          ['<c-e>'],
+    "   \ 'PrtCurLeft()':         ['<c-h>', '<left>', '<c-^>'],
+    "   \ 'PrtCurRight()':        ['<c-l>', '<right>'],
+    "   \ 'PrtClearCache()':      ['<F5>'],
+    "   \ 'PrtDeleteEnt()':       ['<F7>'],
+    "   \ 'CreateNewFile()':      ['<c-y>'],
+    "   \ 'MarkToOpen()':         ['<c-o>'],
+    "   \ 'OpenMulti()':          ['<c-u>'],
+    "   \ 'PrtExit()':            ['<esc>', '<c-c>', '<c-g>'],
+    "   \ }
+"
 " Mapping Keys.
     " Set the leader key to one convinient on dvorak.
     let mapleader = ","
