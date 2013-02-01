@@ -192,8 +192,11 @@ endfunction
 
     " fugitive mappings
     map <leader>gc :Gcommit<return>
+    map <leader>gr :Gread<return>
+    map <leader>gw :Gwrite<return>
     map <leader>gd :Gdiff<return>
     map <leader>gs :Gstatus<return>
+    map <leader>gb :Gstatus<return>
 
     " NERDTree toggle mapping
     map <leader>d :NERDTreeToggle<return>
