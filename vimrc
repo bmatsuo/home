@@ -179,9 +179,10 @@ endfunction
     map <leader>h :noh<return>
 
     " write/quit controls
-    map <leader>cc :w<return>
-    map <leader>cq :q<return>
-    map <leader>cQ :q!<return>
+    map <leader>t :w<return>
+    map <leader>nt :wq<return>
+    map <leader>sn :q<return>
+    map <leader>sN :q!<return>
 
     " split navigation/control
     map <leader>c <C-w>
