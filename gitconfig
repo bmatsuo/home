@@ -2,6 +2,9 @@
 	name = Bryan Matsuo
     email = bryan.matsuo@gmail.com
 
+[push]
+	default=tracking
+
 [alias]
     d=diff --color
     sh=show --color
