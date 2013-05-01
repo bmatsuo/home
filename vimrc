@@ -179,13 +179,25 @@ endfunction
     map <leader>h :noh<return>
 
     " write/quit controls
-    map <leader>t :w<return>
-    map <leader>nt :wq<return>
-    map <leader>sn :q<return>
-    map <leader>sN :q!<return>
+    map <leader>cg :w<return>
+    map <leader>cC :wq<return>
+    map <leader>cr :q<return>
+    map <leader>cq :q<return>
+    map <leader>cR :q!<return>
+    map <leader>cQ :q<return>
 
     " split navigation/control
     map <leader>c <C-w>
+
+    " quick macros
+    map <leader>n qq
+    map <leader>s q
+    map <leader><return> @q
+
+    " command/search buffer
+    map <leader>. q:i
+    map <leader>, q:i!
+    map <leader>/ q/
 
     " buffer mappings
     map <leader>b :buffers<CR>:buffer<Space>
@@ -197,7 +209,11 @@ endfunction
     map <leader>gw :Gwrite<return>
     map <leader>gd :Gdiff<return>
     map <leader>gs :Gstatus<return>
-    map <leader>gb :Gstatus<return>
+    map <leader>gb :Gblame<return>
+
+    " diff mappings
+    map <leader>gp :diffput<return>
+    map <leader>gg :diffget<return>
 
     " NERDTree toggle mapping
     map <leader>d :NERDTreeToggle<return>
