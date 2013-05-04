@@ -195,12 +195,16 @@ endfunction
     map <leader><return> @q
 
     " command/search buffer
-    map <leader>. q:i
-    map <leader>, q:i!
+    map <leader>. q:i!
+    map <leader>, q:i
+    map <leader>> q:k
     map <leader>/ q/
 
     " buffer mappings
-    map <leader>b :buffers<CR>:buffer<Space>
+    map <leader>bb :buffers<CR>:buffer<Space>
+    map <leader>bn :bnext<return>
+    map <leader>bp :bprevious<return>
+    map <leader>bs :buffer #<return>
     map <leader>e :edit<Space>
 
     " fugitive mappings
