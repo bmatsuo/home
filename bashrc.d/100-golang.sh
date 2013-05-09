@@ -1,3 +1,3 @@
-export GOPATH="$HOME/Go"
-export PATH="$HOME/Go/bin:$PATH"
+export GOPATH="$HOME"
+export PATH="$HOME/bin:$PATH"
 export PATH="$PATH:$HOME/Go/AppEngine/google_appengine"
