@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# files to link in the home directory
+files=(
+		config
+		gitconfig
+		tmux.conf
+		vimrc
+		inputrc
+		bashrc
+		bashrc.d
+      )
+
+# hooks to call after linking
+function post_hooks() {
+    case $1 in
+        vimrc)
+            [ -d "$HOME/.vim/bundle/vundle" ] || git clone "https://github.com/gmarik/vundle.git" "$HOME/.vim/bundle/vundle"
+            ;;
+    esac
+}
+
+for f in ${files[*]}; do
+	src="`pwd`/$f"
+	dest="$HOME/.$f"
+	if [[ -L "$dest" ]] && [ "$src" = `readlink $dest` ]; then
+		echo "link to source already exists; $f"
+    elif [ -e "$dest" ]; then
+		ACTION=""
+		while [ -z "$ACTION" ]; do
+			read -n1 -ep"$dest exists: [Brn] "
+			case `echo $REPLY | tr [A-Z] [a-z]` in
+				b) ACTION="backup" ;;
+				r) ACTION="replace" ;;
+				n) ACTION="nothing" ;;
+				*) echo "didn't understand $REPLY" ;;
+			esac
+		done
+
+		case "$ACTION" in
+			backup) mv "$dest" "$dest.backup.`date +"%Y-%m-%d"`" ;;
+			replace) rm "$dest" ;;
+		esac
+
+	    [ "$ACTION" = "nothing" ] || ln -s "$src" "$dest"
+    else
+	    ln -s "$src" "$dest"
+	fi
+    post_hooks "$f"
+done
