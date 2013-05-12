@@ -5,19 +5,24 @@
 [push]
 	default=tracking
 
+[color]
+    ui=true
+
 [alias]
-    d=diff --color
-    sh=show --color
-    l=log --color --oneline -n 5
-    ll=log --color --oneline -n 10
-    lll=log --color --oneline
-    ln=l --color -n
+    d=diff
+    sh=show
+    l=log --oneline -n 5
+    ll=log --oneline -n 10
+    lll=log --oneline
+    ln=l -n
     st=status
     br=branch
     co=checkout
     ci=commit
     cia=commit -a
-    gr=log --oneline --graph --color
+    gr=log --oneline --graph
+    ff=pull --ff-only
+    m=merge --no-ff
 
 [core]
 	excludesfile = ~/.config/git/gitignore
