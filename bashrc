@@ -25,6 +25,6 @@ if [ -d "$HOME/.bashrc.d/" ]; then
 fi
 
 # Initialization specific to the local machine
-if [ -x "$HOME/.bashrc.local" ]; then
+if [ -f "$HOME/.bashrc.local" ]; then
     source  "$HOME/.bashrc.local"
 fi
