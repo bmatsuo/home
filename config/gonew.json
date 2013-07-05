@@ -49,14 +49,6 @@
                         "go.cmd.t2"
                     ]
                 },
-                "Options": {
-                    "Path": "{{.Project.Name}}/options.go",
-                    "Type": "go",
-                    "Templates": [
-                        "license.newbsd.gohead.t2",
-                        "go.options.t2"
-                    ]
-                },
                 "README": {
                     "Path": "{{.Project.Name}}/README.md",
                     "Type": "readme",

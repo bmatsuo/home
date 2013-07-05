@@ -1,14 +1,20 @@
 [user]
 	name = Bryan Matsuo
-    email = bryan.matsuo@gmail.com
+    email = bryan dot matsuo at gmail dot com
+
+[color]
+    ui = true
 
 [push]
-	default=tracking
+	default = tracking
 
 [color]
     ui=true
 
 [alias]
+    amend=commit --amend
+    amendp=commit --amend --patch
+    amenda=commit --amend -a
     d=diff
     sh=show
     l=log --oneline -n 5
@@ -19,6 +25,7 @@
     br=branch
     co=checkout
     ci=commit
+    cip = commit --patch
     cia=commit -a
     gr=log --oneline --graph
     ff=pull --ff-only

@@ -9,9 +9,11 @@ Bundle 'gmarik/vundle'
 
 " personal plugins
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
 Bundle 'fsouza/go.vim'
 Bundle 'kien/ctrlp.vim'
+Bundle 'cespare/vim-toml'
 
 filetype plugin indent on " required!
 
@@ -195,10 +197,10 @@ endfunction
     map <leader><return> @q
 
     " command/search buffer
-    map <leader>. q:i!
-    map <leader>, q:i
-    map <leader>> q:k
+    map <leader>. q:i!<esc>
+    map <leader>> q:i!
     map <leader>/ q/
+    map <leader>? q/
 
     " buffer mappings
     map <leader>bb :buffers<CR>:buffer<Space>
