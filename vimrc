@@ -14,6 +14,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'fsouza/go.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'cespare/vim-toml'
+Bundle 'derekwyatt/vim-scala'
 
 filetype plugin indent on " required!
 
@@ -120,17 +121,21 @@ endfunction
     "let g:ctrlp_working_path_mode = 'ra'
     "let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
     "let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
-    "set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+    set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
     "set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
     "
     "let g:ctrlp_root_markers = ['.cabal', 'Gemfile', '.git']
     "
-    "let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-    "let g:ctrlp_custom_ignore = {
-    "   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-    "   \ 'file': '\v\.(exe|so|dll)$',
-    "   \ 'link': 'some_bad_symbolic_links',
-    "   \ }
+    " ignore (among others) the ./target directory in scala/java projects
+    let g:ctrlp_custom_ignore = {
+       \ 'dir':  '\v[\/]\.(git|hg|svn)|target$',
+       \ 'file': '\v\.(a|o|exe|so|dll)$',
+       \ }
+    let g:syntastic_mode_map = {
+      \ 'mode': 'active',
+      \ 'active_filetypes': [],
+      \ 'passive_filetypes': ['scala'],
+      \ }
     "if platform == \"MinGW\"
     "    let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
     "else
@@ -268,4 +273,6 @@ if has("autocmd")
     au BufNewFile,BufRead *.rb,*.erb,*.rhtml set tabstop=2
     au BufNewFile,BufRead *.rb,*.erb,*.rhtml set shiftwidth=2
     au BufNewFile,BufRead *.go set noexpandtab
+    au BufNewFile,BufRead *.scala,*.sbt set tabstop=2
+    au BufNewFile,BufRead *.scala,*.sbt set shiftwidth=2
 endif
