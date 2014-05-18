@@ -11,7 +11,8 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
-Bundle 'fsouza/go.vim'
+Bundle 'SirVer/ultisnips'
+Bundle 'fatih/vim-go'
 Bundle 'kien/ctrlp.vim'
 Bundle 'cespare/vim-toml'
 Bundle 'derekwyatt/vim-scala'
@@ -19,22 +20,6 @@ Bundle 'derekwyatt/vim-scala'
 filetype plugin indent on " required!
 
 """"""""""""""""""""""""""""""BASIC SETTINGS"""""""""""""""""""""""""""""
-
-" Experimental gofmt command.
-nmap <F10> mo:%!gofmt<CR>g`o
-command! Gofmt call s:MyGoFormat()
-
-function! s:MyGoFormat()
-    let view = winsaveview()
-    %!gofmt
-    if v:shell_error
-        %| " output errors returned by gofmt
-           " TODO(dchest): perhaps, errors should go to quickfix
-        undo
-	echohl Error | echomsg "Gofmt returned error" | echohl None
-    endif
-    call winrestview(view)
-endfunction
 
 " Fix backspace on some remote hosts.
     set t_kb=
@@ -50,7 +35,7 @@ endfunction
 " Ruler
     set ruler           " show the ruler
     " Ruler format was mixed and matched from http://proasix.com/hlp/contract/adi/hlp/vim.hlp
-    set rulerformat=%-50(%n:%f%r%m%w%y%)%=%5(%p%%%)%=%6(\(%l,%)%=%-4(%c\)%)%=%4(0x%B%)%=%8(%)
+    "set rulerformat=%-50(%n:%f%r%m%w%y%)%=%5(%p%%%)%=%6(\(%l,%)%=%-4(%c\)%)%=%4(0x%B%)%=%8(%)
     set showcmd         " show partial commands in status line and
     set showmode        " show 'Insert', 'Replace', 'Visual' when in those modes
 
@@ -244,7 +229,6 @@ endfunction
 
     "format mapping (<leader>f)
     if has("autocmd")
-        au BufNewFile,BufRead *.go   map <leader>f :Gofmt<return>
         au BufNewFile,BufRead *.json map <leader>f :1,$!ruby -e 'require "json"; puts JSON.pretty_generate(JSON.parse($stdin.read))'<return>
     end
 
