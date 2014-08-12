@@ -51,9 +51,6 @@ filetype plugin indent on " required!
     set hlsearch        " Highlight search matches
     set smartcase       " case insensitive is one directional?
 
-" make hitting escape twice in normal mode remove search highlighting
-    noremap <esc><esc> :noh<CR><esc>
-
 " Navigating
     set scrolloff=2     " minimum lines to keep above and below cursor
 
