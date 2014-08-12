@@ -100,6 +100,14 @@ filetype plugin indent on " required!
         let g:Tex_ViewRule_pdf = "xpdf 2>/dev/null"
     endif
 
+" syntastic
+    let g:syntastic_mode_map = {
+                \ 'mode': 'active',
+                \ 'active_filetypes': [],
+                \ 'passive_filetypes': ['scala'],
+                \ }
+    let g:syntastic_go_checkers = ['go', 'govet', 'gofmt']
+
 " ctrlp
     "let g:ctrlp_map = '<c-p>'
     let g:ctrlp_cmd = 'CtrlPMixed'
@@ -116,11 +124,6 @@ filetype plugin indent on " required!
        \ 'dir':  '\v[\/]\.(git|hg|svn)|target$',
        \ 'file': '\v\.(a|o|exe|so|dll)$',
        \ }
-    let g:syntastic_mode_map = {
-      \ 'mode': 'active',
-      \ 'active_filetypes': [],
-      \ 'passive_filetypes': ['scala'],
-      \ }
     "if platform == \"MinGW\"
     "    let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
     "else
