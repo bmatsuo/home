@@ -29,3 +29,12 @@ git clone "$GITHUB_HOME_URL" "$GITHUB_HOME_LOCAL"
 
 echo "installing files"
 cd "$GITHUB_HOME_LOCAL" && bash scripts/install.sh
+
+echo "launching a nested login shell to test changes"
+"$SHELL" -l
+if [ $? -ne 0 ]; then
+    echo 'it looks like something when wrong!' 1>&2
+    echo 'you are fucked!' 1>&2
+    echo 'try to remove problem files (likely in bashrc.d) before exiting this terminal session' 1>&2
+    exit 1
+fi
