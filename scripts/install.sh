@@ -30,10 +30,14 @@ for f in ${files[*]}; do
 		while [ -z "$ACTION" ]; do
 			read -n1 -ep"$dest exists: [Brn] "
 			case `echo $REPLY | tr [A-Z] [a-z]` in
-				b) ACTION="backup" ;;
-				r) ACTION="replace" ;;
-				n) ACTION="nothing" ;;
-				*) echo "didn't understand $REPLY" ;;
+				b)  ACTION="backup"     ;;
+				r)  ACTION="replace"    ;;
+				n)  ACTION="nothing"    ;;
+				*)  if [ -z "$REPLY" ]
+                    then ACTION="backup"
+                    else echo "didn't understand $REPLY"
+                    fi
+                    ;;
 			esac
 		done
 
