@@ -14,7 +14,7 @@ fi
 
 echo 'bootstrap install of github.com/bmatsuo/home'
 
-if [ -z $(ssh-add -l) ]; then
+if [ -z "$(ssh-add -l)" ]; then
     echo 'no ssh key is set up' 1>&2
     exit 1
 fi
