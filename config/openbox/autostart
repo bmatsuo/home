@@ -1,0 +1,7 @@
+#!/bin/bash
+
+eval `cat $HOME/.fehbg` &
+
+# on Ubuntu 14.04 the layout was not correctly set without a sleep.
+# two seconds may be more than necessary but it works ok for now.
+(sleep 2 && setxkbmap -layout "us,us" -variant "dvorak," -option ctrl:swapcaps) &
