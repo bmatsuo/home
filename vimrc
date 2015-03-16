@@ -16,6 +16,7 @@ Bundle 'fatih/vim-go'
 Bundle 'kien/ctrlp.vim'
 Bundle 'cespare/vim-toml'
 Bundle 'derekwyatt/vim-scala'
+Bundle 'sirtaj/vim-openscad'
 
 filetype plugin indent on " required!
 
@@ -103,7 +104,7 @@ filetype plugin indent on " required!
                 \ 'active_filetypes': [],
                 \ 'passive_filetypes': ['scala'],
                 \ }
-    let g:syntastic_go_checkers = ['go', 'govet', 'gofmt']
+    let g:syntastic_go_checkers = ['govet', 'gofmt']
 
 " ctrlp
     "let g:ctrlp_map = '<c-p>'
@@ -162,6 +163,11 @@ filetype plugin indent on " required!
     "   \ 'OpenMulti()':          ['<c-u>'],
     "   \ 'PrtExit()':            ['<esc>', '<c-c>', '<c-g>'],
     "   \ }
+
+" vim-go
+
+let g:go_fmt_command = "goimports"
+
 "
 " Mapping Keys.
     " Set the leader key to one convinient on dvorak.
