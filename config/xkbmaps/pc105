@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# pc105
+# Standard PC keyboards:
+# 
+#   Physical Key        Virtual Key
+#   CapsLock            LCtrl
+#   LCtrl               CapsLock
+#   RAlt                Compose
+#
+# NOTE: -option is specified twice for setxkbmap. the first (with an empty value)
+# clears previously set options
+
+XKB_LAYOUT="us,us"
+XKB_VARIANT="dvorak,"
+XKB_OPTIONS="ctrl:swapcaps,compose:ralt"
+setxkbmap -layout "$XKB_LAYOUT" -variant "$XKB_VARIANT" -option '' -option "$XKB_OPTIONS"

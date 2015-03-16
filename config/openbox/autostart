@@ -2,6 +2,21 @@
 
 eval `cat $HOME/.fehbg` &
 
-# on Ubuntu 14.04 the layout was not correctly set without a sleep.
-# two seconds may be more than necessary but it works ok for now.
-(sleep 2 && setxkbmap -layout "us,us" -variant "dvorak," -option ctrl:swapcaps) &
+# BUG: this appears to break the trackpad completely, which is better than it
+# registering accidental touches.
+synclient "AreaRightEdge=1" &
+
+$HOME/.config/xkbmaps/pc105 &
+
+$HOME/.config/openbox/lal/lal --bold --color black &
+
+dockapp-battery \
+    -window.geometry  '40x20' \
+    -battery.geometry '38x18+1+1' \
+    -text.geometry    '38x18+1+1' \
+    '{{percent .fraction}}' \
+    '{{durShort .remaining}}' &
+
+stalonetray --dockapp-mode &
+
+xautolock -time 3 -locker slock &
