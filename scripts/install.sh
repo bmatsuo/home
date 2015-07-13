@@ -9,6 +9,7 @@ files=(
 		inputrc
 		bashrc
 		bashrc.d
+        pythonrc.py
       )
 
 # hooks to call after linking

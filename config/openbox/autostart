@@ -10,6 +10,8 @@ $HOME/.config/xkbmaps/pc105 &
 
 $HOME/.config/openbox/lal/lal --bold --color black &
 
+dockapp-cpu -window.geometry=40x20 -ignore=cpu &
+
 dockapp-battery \
     -window.geometry  '40x20' \
     -battery.geometry '38x18+1+1' \

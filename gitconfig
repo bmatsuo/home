@@ -16,6 +16,7 @@
     amendp=commit --amend --patch
     amenda=commit --amend -a
     d=diff
+    dc=diff --cached
     sh=show
     l=log --oneline -n 5
     ll=log --oneline -n 10
