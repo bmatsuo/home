@@ -238,6 +238,14 @@ let g:go_fmt_command = "goimports"
         au BufNewFile,BufRead *.json map <leader>f :1,$!ruby -e 'require "json"; puts JSON.pretty_generate(JSON.parse($stdin.read))'<return>
     end
 
+function AutoPEP8()
+    let l:curw=winsaveview()
+    try | silent undojoin | catch | endtry
+    execute ":%!autopep8 --max-line-length=100 -"
+    call winrestview(l:curw)
+endfunction
+
+
 if has("autocmd")
     " File types where tabs are important
     au BufNewFile,BufRead  Makefile,makefile set noexpandtab
@@ -265,4 +273,8 @@ if has("autocmd")
     au BufNewFile,BufRead *.go set noexpandtab
     au BufNewFile,BufRead *.scala,*.sbt set tabstop=2
     au BufNewFile,BufRead *.scala,*.sbt set shiftwidth=2
+
+    " au FileType python au BufWritePre <buffer> silent execute "normal! mZHmY:%!autopep8 --max-line-length=100 -\<return>`Yzt`Z"
+    " au FileType python au BufWritePre <buffer> call AutoPEP8()
+    au FileType python map <leader>f :call AutoPEP8()<return>
 endif

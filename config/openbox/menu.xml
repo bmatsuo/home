@@ -6,10 +6,10 @@
                 file:///usr/share/openbox/menu.xsd">
 
 <menu id="root-menu" label="Openbox 3">
-  <item label="Configure">
+  <item label="OB Configure">
     <action name="Reconfigure" />
   </item>
-  <item label="Restart">
+  <item label="OB Restart">
     <action name="Restart" />
   </item>
   <separator />
@@ -22,6 +22,18 @@
   </item>
   <item label="Browser">
     <action name="Execute"><execute>x-www-browser</execute></action>
+  </item>
+  <item label="Chat">
+    <action name="Execute"><execute>empathy</execute></action>
+  </item>
+  <item label="S3">
+    <action name="Execute"><execute>dragondisk</execute></action>
+  </item>
+  <item label="OpenSCAD">
+    <action name="Execute"><execute>openscad</execute></action>
+  </item>
+  <item label="RepetierHost">
+    <action name="Execute"><execute>repetierHost</execute></action>
   </item>
   <!-- This requires the presence of the 'menu' package to work -->
   <menu id="/Debian" />
