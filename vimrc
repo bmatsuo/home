@@ -17,6 +17,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'cespare/vim-toml'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'sirtaj/vim-openscad'
+Bundle 'klen/python-mode'
 
 filetype plugin indent on " required!
 
@@ -164,7 +165,9 @@ filetype plugin indent on " required!
     "   \ 'PrtExit()':            ['<esc>', '<c-c>', '<c-g>'],
     "   \ }
 
+"
 " vim-go
+"
 
 let g:go_fmt_command = "goimports"
 
@@ -200,7 +203,6 @@ let g:pymode_rope_change_signature_bind = '<leader>pysig'
 " cache generation is needed for autoimport.  it's not clear when its actually
 " necessary to regenerate the global cache.
 let g:pymode_rope_regenerate_on_write = 0
-
 
 "
 " Mapping Keys.
