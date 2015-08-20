@@ -17,6 +17,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'cespare/vim-toml'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'sirtaj/vim-openscad'
+Bundle 'klen/python-mode'
 
 filetype plugin indent on " required!
 
@@ -164,9 +165,28 @@ filetype plugin indent on " required!
     "   \ 'PrtExit()':            ['<esc>', '<c-c>', '<c-g>'],
     "   \ }
 
+"
 " vim-go
+"
 
 let g:go_fmt_command = "goimports"
+
+"
+" python-mode
+"
+
+let g:pymode_options_max_line_length = 100
+let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}
+let g:pymode_lint_options_pylint = {'max-line-length': g:pymode_options_max_line_length}
+
+" McCabe complexity set very high to avoid really annoying stuff happening in
+" most previously-unchecked files.
+let g:pymode_lint_options_mccabe = {'complexity': 30}
+
+let g:pymode_rope_rename_bind = '<leader>rn'
+" cache generation is needed for autoimport.  it's not clear when its actually
+" necessary to regenerate the global cache.
+let g:pymode_rope_regenerate_on_write = 0
 
 "
 " Mapping Keys.
