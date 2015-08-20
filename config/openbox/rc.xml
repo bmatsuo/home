@@ -245,8 +245,11 @@
         <to>4</to>
       </action>
     </keybind>
+    <keybind key="W-m">
+        <action name="ToggleMaximize"/>
+    </keybind>
     <keybind key="W-d">
-      <action name="ToggleShowDesktop"/>
+      <action name="ToggleDecorations"/>
     </keybind>
     <!-- Keybindings for windows -->
     <keybind key="A-F4">
