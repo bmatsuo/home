@@ -8,18 +8,30 @@ synclient "AreaRightEdge=1" &
 
 $HOME/.config/xkbmaps/pc105 &
 
-$HOME/.config/openbox/lal/lal --bold --color black --fontsize 10 --height 12 &
+stalonetray --dockapp-mode --icon-size 12 --max-geometry 0x24 &
+
+sleep 1
 
 dockapp-cpu -window.geometry=24x12 -ignore=cpu &
+
+sleep 1
 
 dockapp-battery \
     -window.geometry  '48x12' \
     -battery.geometry '22x10+1+1' \
-    -text.geometry    '24x12+24-3' \
-    -text.fontsize    9 \
+    -text.geometry    '24x10+23+1' \
+    -text.fontsize    10 \
     '{{percent .fraction}}' \
     '{{durShort .remaining}}' &
 
-stalonetray --dockapp-mode --icon-size 12 --max-geometry 0x24 &
+sleep 1
+
+$HOME/.config/openbox/lal/lal --bold --color black --fontsize 10 --height 12 &
+
+sleep 1
+
+volumeicon &
+
+sleep 1
 
 xautolock -time 3 -locker slock &

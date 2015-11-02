@@ -105,7 +105,7 @@ filetype plugin indent on " required!
                 \ 'active_filetypes': [],
                 \ 'passive_filetypes': ['scala'],
                 \ }
-    let g:syntastic_go_checkers = ['govet', 'gofmt']
+    let g:syntastic_go_checkers = ['govet', 'gofmt', 'golint']
 
 " ctrlp
     "let g:ctrlp_map = '<c-p>'
@@ -183,7 +183,23 @@ let g:pymode_lint_options_pylint = {'max-line-length': g:pymode_options_max_line
 " most previously-unchecked files.
 let g:pymode_lint_options_mccabe = {'complexity': 30}
 
-let g:pymode_rope_rename_bind = '<leader>rn'
+let g:pymode_rope_complete_on_dot = 0
+let g:pymode_rope_completion_bind = '<leader>pyc'
+
+let g:pymode_run_bind = '<leader>pyrun'
+let g:pymode_breakpoint_bind = '<leader>pybreak'
+
+let g:pymode_rope_show_doc_bind = '<leader>pyd'
+let g:pymode_rope_goto_definition_bind = '<leader>pyg'
+let g:pymode_rope_rename_bind = '<leader>pyrn'
+let g:pymode_rope_rename_module_bind = '<leader>pyrm'
+let g:pymode_rope_organize_imports_bind = '<leader>pyi'
+let g:pymode_rope_autoimport_bind = '<leader>pyai'
+let g:pymode_rope_module_to_package_bind = '<leader>pym2p'
+let g:pymode_rope_extract_method_bind = '<leader>pyxm'
+let g:pymode_rope_extract_variable_bind = '<leader>pyfuse'
+let g:pymode_rope_change_signature_bind = '<leader>pysig'
+
 " cache generation is needed for autoimport.  it's not clear when its actually
 " necessary to regenerate the global cache.
 let g:pymode_rope_regenerate_on_write = 0
