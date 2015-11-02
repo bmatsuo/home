@@ -10,6 +10,7 @@ files=(
 		bashrc
 		bashrc.d
         pythonrc.py
+        Xdefaults
       )
 
 # hooks to call after linking

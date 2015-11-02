@@ -1,0 +1,86 @@
+Xft.dpi:                    96
+Xft.antialias:              false
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
+
+URxvt.allow_bold:           false
+URxvt*font: xft:Monospace:pixelsize=14
+URxvt*boldFont: xft:Monospace:pixelsize=14
+URxvt*letterSpace: -2
+
+URxvt.perl-lib: /home/bmatsuo/.urxvt/urxvt-perls:/home/bmatsuo/.urxvt/urxvt-tabbedex
+URxvt.perl-ext-common: default,clipboard,tabbedex
+
+! clipboard stuff (copy/paste)
+URxvt.iso14755: false
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.clipboard.copycmd:  xclip -i -selection clipboard
+URxvt.clipboard.pastecmd: xclip -o -selection clipboard
+
+! tabs
+URxvt.tabbed.autohide: true
+URxvt.tabbed.index-from-one: true
+URxvt.keysym.M-t: perl:tabbedex:new_tab
+URxvt.keysym.M-1: perl:tabbedex:goto_tab_1
+URxvt.keysym.M-2: perl:tabbedex:goto_tab_2
+URxvt.keysym.M-3: perl:tabbedex:goto_tab_3
+URxvt.keysym.M-4: perl:tabbedex:goto_tab_4
+URxvt.keysym.M-5: perl:tabbedex:goto_tab_5
+URxvt.keysym.M-6: perl:tabbedex:goto_tab_6
+URxvt.keysym.M-7: perl:tabbedex:goto_tab_7
+URxvt.keysym.M-8: perl:tabbedex:goto_tab_8
+URxvt.keysym.M-9: perl:tabbedex:goto_tab_9
+URxvt.keysym.M-0: perl:tabbedex:last_tab
+URxvt.keysym.M-l: perl:tabbedex:next_tab
+URxvt.keysym.M-h: perl:tabbedex:prev_tab
+URxvt.keysym.Shift-M-H: perl:tabbedex:move_tab_left
+URxvt.keysym.Shift-M-L: perl:tabbedex:move_tab_right
+URxvt.keysym.M-R: perl:tabbedex:rename_tab
+
+!!Source http://github.com/altercation/solarized
+*background: #002b36
+*foreground: #eee8d5
+
+*fading: 40
+*fadeColor: #002b36
+*cursorColor: #93a1a1
+*pointerColorBackground: #586e75
+*pointerColorForeground: #93a1a1
+ 
+!! black dark/light
+*color0: #073642
+!! NOTE(bmatsuo):
+!! I had to change the color for light black because it was identical to the
+!! background.
+!!*color8: #002b36
+*color8: #00b0c8
+ 
+!! red dark/light
+*color1: #dc322f
+*color9: #cb4b16
+ 
+!! green dark/light
+*color2: #859900
+*color10: #586e75
+ 
+!! yellow dark/light
+*color3: #b58900
+*color11: #657b83
+ 
+!! blue dark/light
+*color4: #268bd2
+*color12: #839496
+ 
+!! magenta dark/light
+*color5: #d33682
+*color13: #6c71c4
+ 
+!! cyan dark/light
+*color6: #2aa198
+*color14: #93a1a1
+ 
+!! white dark/light
+*color7: #eee8d5
+*color15: #fdf6e3
