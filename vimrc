@@ -104,7 +104,7 @@ filetype plugin indent on " required!
                 \ 'active_filetypes': [],
                 \ 'passive_filetypes': ['scala'],
                 \ }
-    let g:syntastic_go_checkers = ['govet', 'gofmt']
+    let g:syntastic_go_checkers = ['govet', 'gofmt', 'golint']
 
 " ctrlp
     "let g:ctrlp_map = '<c-p>'
