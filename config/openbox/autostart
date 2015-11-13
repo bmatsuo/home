@@ -1,10 +1,15 @@
 #!/bin/bash
 
-eval `cat $HOME/.fehbg` &
+if [ -e "$HOME/.fehbg" ]; then
+    eval `cat "$HOME/.fehbg"` &
+fi
 
-# BUG: this appears to break the trackpad completely, which is better than it
-# registering accidental touches.
-synclient "AreaRightEdge=1" &
+if which synclient 2>/dev/null; then
+    # BUG:
+    # This appears to break the trackpad completely, which is better than it
+    # registering accidental touches.
+    synclient "AreaRightEdge=1" &
+fi
 
 $HOME/.config/xkbmaps/pc105 &
 
@@ -16,17 +21,19 @@ dockapp-cpu -window.geometry=24x12 -ignore=cpu &
 
 sleep 1
 
-dockapp-battery \
-    -window.geometry  '48x12' \
-    -battery.geometry '22x10+1+1' \
-    -text.geometry    '24x10+23+1' \
-    -text.fontsize    10 \
-    '{{percent .fraction}}' \
-    '{{durShort .remaining}}' &
+if [ -n "$(ls /sys/class/power_supply | grep -i battery)" ]; then
+    dockapp-battery \
+        -window.geometry  '48x12' \
+        -battery.geometry '22x10+1+1' \
+        -text.geometry    '24x10+23+1' \
+        -text.fontsize    10 \
+        '{{percent .fraction}}' \
+        '{{durShort .remaining}}' &
 
-sleep 1
+    sleep 1
+fi
 
-$HOME/.config/openbox/lal/lal --bold --color black --fontsize 10 --height 12 &
+lal --bold --color black --fontsize 10 --height 12 &
 
 sleep 1
 
