@@ -7,7 +7,7 @@ Xft.hintstyle:              hintslight
 URxvt.allow_bold:           false
 URxvt*font: xft:Monospace:pixelsize=14
 URxvt*boldFont: xft:Monospace:pixelsize=14
-URxvt*letterSpace: -2
+URxvt*letterSpace: -5
 
 URxvt.perl-lib: /home/bmatsuo/.urxvt/urxvt-perls:/home/bmatsuo/.urxvt/urxvt-tabbedex
 URxvt.perl-ext-common: default,clipboard,tabbedex
