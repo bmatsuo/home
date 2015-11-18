@@ -23,8 +23,8 @@
   <item label="Browser">
     <action name="Execute"><execute>google-chrome-stable</execute></action>
   </item>
-  <item label="OpenSCAD">
-    <action name="Execute"><execute>openscad</execute></action>
+  <item label="Run ...">
+    <action name="Execute"><execute>bashrun</execute></action>
   </item>
   <!-- This requires the presence of the 'menu' package to work -->
   <menu id="/Debian" />
