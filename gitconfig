@@ -31,6 +31,8 @@
     gr=log --oneline --graph
     ff=pull --ff-only
     m=merge --no-ff
+    pushu=push --set-upstream
+    pushup=push --set-upstream origin HEAD
 
 [core]
 	excludesfile = ~/.config/git/gitignore
