@@ -17,7 +17,7 @@ stalonetray --dockapp-mode --icon-size 12 --max-geometry 0x24 &
 
 sleep 1
 
-dockapp-cpu -window.geometry=24x12 -ignore=cpu &
+$HOME/bin/dockapp-cpu -window.geometry=24x12 -ignore=cpu &
 
 sleep 1
 
