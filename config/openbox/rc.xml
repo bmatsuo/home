@@ -166,7 +166,7 @@
     <!-- 'Above', 'Normal', or 'Below' -->
     <direction>Horizontal</direction>
     <!-- 'Vertical' or 'Horizontal' -->
-    <autoHide>no</autoHide>
+    <autoHide>yes</autoHide>
     <hideDelay>300</hideDelay>
     <!-- in milliseconds (1000 = 1 second) -->
     <showDelay>300</showDelay>
@@ -223,7 +223,7 @@
       <action name="SendToDesktop">
         <to>down</to>
         <wrap>no</wrap>
-    </action>
+      </action>
     </keybind>
     <keybind key="W-F1">
       <action name="GoToDesktop">
@@ -249,6 +249,9 @@
       <action name="Execute">
         <command>bashrun</command>
       </action>
+    </keybind>
+    <keybind key="W-S-d">
+      <action name="ToggleDockAutohide"/>
     </keybind>
     <keybind key="W-m">
       <action name="ToggleMaximize"/>
@@ -282,7 +285,7 @@
       </action>
     </keybind>
     <!-- Keybindings for window switching -->
-    <keybind key="A-Tab">
+    <keybind key="W-Tab">
       <action name="NextWindow">
         <finalactions>
           <action name="Focus"/>
@@ -291,7 +294,7 @@
         </finalactions>
       </action>
     </keybind>
-    <keybind key="A-S-Tab">
+    <keybind key="W-S-Tab">
       <action name="PreviousWindow">
         <finalactions>
           <action name="Focus"/>
@@ -300,7 +303,7 @@
         </finalactions>
       </action>
     </keybind>
-    <keybind key="C-A-Tab">
+    <keybind key="C-W-Tab">
       <action name="NextWindow">
         <panels>yes</panels>
         <desktop>yes</desktop>
@@ -311,6 +314,50 @@
         </finalactions>
       </action>
     </keybind>
+
+    <!-- window snapping bindings -->
+    <keybind key="W-Left">
+        <action name="UnmaximizeFull"/>
+        <action name="MaximizeVert"/>
+        <action name="MoveResizeTo">
+            <width>50%</width>
+        </action>
+       <action name="MoveToEdge">
+           <direction>west</direction>
+       </action>
+    </keybind>
+    <keybind key="W-Right">
+        <action name="UnmaximizeFull"/>
+        <action name="MaximizeVert"/>
+        <action name="MoveResizeTo">
+            <width>50%</width>
+        </action>
+        <action name="MoveToEdge">
+            <direction>east</direction>
+        </action>
+    </keybind>
+    <keybind key="W-Up">
+        <action name="UnmaximizeFull"/>
+        <action name="MaximizeHorz"/>
+        <action name="MoveResizeTo">
+            <height>50%</height>
+        </action>
+        <action name="MoveToEdge">
+            <direction>north</direction>
+        </action>
+    </keybind>
+    <keybind key="W-Down">
+        <action name="UnmaximizeFull"/>
+        <action name="MaximizeHorz"/>
+        <action name="MoveResizeTo">
+            <height>50%</height>
+        </action>
+        <action name="MoveToEdge">
+            <direction>south</direction>
+        </action>
+    </keybind>
+    <!-- window snapping bindings -->
+
     <!-- Keybindings for window switching with the arrow keys -->
     <keybind key="W-S-Right">
       <action name="DirectionalCycleWindows">
