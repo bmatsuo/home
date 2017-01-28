@@ -16,8 +16,15 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-# Use an abbreviated path in the 
-PROMPT_COMMAND='PS1X=$(p=`pwd`; p=${p#${HOME}}; p=$(echo "$p" | sed "s!\\([^/]\\)[^/][^/][^/][^/]*/!\\1.../!g"); [ p != "$PWD" ] && printf "~";  echo "$p")'
+# Use PROMPT_COMMAND to allow PS1 to display an abbrevieted path (using
+# variable PS1X).
+#
+# NOTE:
+# For PS1X it is important that the number of trailing non-slash characters
+# identified following the first be one greater than the length of $sub in
+# order to make sure that the substitution actually saves space on the line
+# (and is worth performing at all).
+PROMPT_COMMAND='PS1X=$(p=`pwd`; sub=".."; p=${p#${HOME}}; p=$(echo "$p" | sed "s!\\([^/]\\)[^/][^/][^/][^/]*/!\\1$sub/!g"); [ p != "$PWD" ] && printf "~";  echo "$p")'
 
 if [ "$color_prompt" = yes ]; then
     PS1="$prompt_base"'\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]${PS1X}\[\033[00m\]\$ '
