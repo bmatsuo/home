@@ -18,6 +18,7 @@ Bundle 'cespare/vim-toml'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'sirtaj/vim-openscad'
 Bundle 'klen/python-mode'
+Bundle 'othree/xml.vim'
 
 filetype plugin indent on " required!
 
@@ -109,6 +110,8 @@ filetype plugin indent on " required!
 
 " ctrlp
     "let g:ctrlp_map = '<c-p>'
+    let g:ctrlp_use_caching = 1
+    let g:ctrlp_clear_cache_on_exit = 0
     let g:ctrlp_cmd = 'CtrlPMixed'
     "let g:ctrlp_working_path_mode = 'ra'
     "let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
@@ -219,6 +222,9 @@ let g:pymode_rope_regenerate_on_write = 0
     map <leader>cq :q<return>
     map <leader>cR :q!<return>
     map <leader>cQ :q<return>
+
+    " go language leader bindings
+    map <leader>gob :GoBuild<return>
 
     " split navigation/control
     map <leader>c <C-w>
