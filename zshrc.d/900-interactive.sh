@@ -11,6 +11,14 @@ unsetopt beep
 
 if [ -t 1 ] || [ -t 2 ]; then
     export CLICOLOR=1
+
+    # See `man ls` for information about color selection
+    # NOTE: LSCOLORS is a MacOS variable, Linux uses LS_COLORS
+
+    # Dark Mode
+    export LSCOLORS=gxfxcxdxbxegedabagacad
+    # Light Mode
+    #export LSCOLORS=Exfxcxdxbxegedabagacad
 fi
 
 
