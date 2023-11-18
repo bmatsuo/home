@@ -1,14 +1,16 @@
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.zsh/histfile
-HISTSIZE=1000
-SAVEHIST=10000
-setopt autocd extendedglob
-unsetopt appendhistory beep
-bindkey -v
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/bryan/.zshrc'
+ZSHRC_DIR=~/.zshrc.d
+[ -L "$ZSHRC_DIR" ] && ZSHRC_DIR=$(readlink "$ZSHRC_DIR")
+if [ -d "$ZSHRC_DIR" ]; then
+    for script in $(find "$ZSHRC_DIR" -name '*.sh' | sort); do
+        source "$script"
+    done
+fi
+unset ZSHRC_DIR
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
+# ZSHRC_LOCAL_DIR is not expected to be a symlink
+ZSHRC_LOCAL_DIR=~/.zshrc.local.d
+if [ -d "$ZSHRC_LOCAL_DIR" ]; then
+    for script in $(find "$ZSHRC_DIR" -name '*.sh' | sort); do
+        source "$script"
+    done
+fi

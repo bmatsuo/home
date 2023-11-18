@@ -2,13 +2,15 @@
 
 # files to link in the home directory
 files=(
-		config
-		gitconfig
-		tmux.conf
-		vimrc
-		inputrc
-		bashrc
-		bashrc.d
+        config
+        gitconfig
+        tmux.conf
+        vimrc
+        inputrc
+        bashrc
+        bashrc.d
+        zshrc
+        zshrc.d
         pythonrc.py
         Xdefaults
       )
@@ -23,34 +25,34 @@ function post_hooks() {
 }
 
 for f in ${files[*]}; do
-	src="`pwd`/$f"
-	dest="$HOME/.$f"
-	if [[ -L "$dest" ]] && [ "$src" = `readlink $dest` ]; then
-		echo "link to source already exists; $f"
+    src="`pwd`/$f"
+    dest="$HOME/.$f"
+    if [[ -L "$dest" ]] && [ "$src" = `readlink $dest` ]; then
+        echo "link to source already exists; $f"
     elif [ -e "$dest" ]; then
-		ACTION=""
-		while [ -z "$ACTION" ]; do
-			read -n1 -ep"$dest exists: [Brn] "
-			case `echo $REPLY | tr [A-Z] [a-z]` in
-				b)  ACTION="backup"     ;;
-				r)  ACTION="replace"    ;;
-				n)  ACTION="nothing"    ;;
-				*)  if [ -z "$REPLY" ]
+        ACTION=""
+        while [ -z "$ACTION" ]; do
+            read -n1 -ep"$dest exists: [Brn] "
+            case `echo $REPLY | tr [A-Z] [a-z]` in
+                b)  ACTION="backup"     ;;
+                r)  ACTION="replace"    ;;
+                n)  ACTION="nothing"    ;;
+                *)  if [ -z "$REPLY" ]
                     then ACTION="backup"
                     else echo "didn't understand $REPLY"
                     fi
                     ;;
-			esac
-		done
+            esac
+        done
 
-		case "$ACTION" in
-			backup) mv "$dest" "$dest.backup.`date +"%Y-%m-%d"`" ;;
-			replace) rm "$dest" ;;
-		esac
+        case "$ACTION" in
+            backup) mv "$dest" "$dest.backup.`date +"%Y-%m-%d"`" ;;
+            replace) rm "$dest" ;;
+        esac
 
-	    [ "$ACTION" = "nothing" ] || ln -s "$src" "$dest"
+        [ "$ACTION" = "nothing" ] || ln -s "$src" "$dest"
     else
-	    ln -s "$src" "$dest"
-	fi
+        ln -s "$src" "$dest"
+    fi
     post_hooks "$f"
 done
