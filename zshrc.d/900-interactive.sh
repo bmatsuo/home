@@ -21,7 +21,6 @@ if [ -t 1 ] || [ -t 2 ]; then
     #export LSCOLORS=Exfxcxdxbxegedabagacad
 fi
 
-
 # VI Mode
 if [ -t 0 ] && [ -t 1 ]; then
     bindkey -v
@@ -46,6 +45,9 @@ if [ -t 0 ] && [ -t 1 ]; then
     zle -N zle-keymap-select
     set-rps
 fi
+
+# Must follow `bindkey -v` if used
+bindkey '^R' history-incremental-search-backward
 
 # Completion
 if [ -t 0 ]; then
