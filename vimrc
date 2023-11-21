@@ -1,24 +1,26 @@
 """""""""""""""""""""""""""""VUNDLER SETTINGS""""""""""""""""""""""""""""
-filetype off " required!
+set nocompatible " required!
+filetype off 	 " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 
 " required
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " personal plugins
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-fugitive'
-Bundle 'fatih/vim-go'
-Bundle 'kien/ctrlp.vim'
-Bundle 'cespare/vim-toml'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'sirtaj/vim-openscad'
-Bundle 'klen/python-mode'
-Bundle 'othree/xml.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
+Plugin 'fatih/vim-go'
+Plugin 'kien/ctrlp.vim'
+Plugin 'cespare/vim-toml'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'sirtaj/vim-openscad'
+Plugin 'klen/python-mode'
+Plugin 'othree/xml.vim'
 
+call vundle#end()
 filetype plugin indent on " required!
 
 """"""""""""""""""""""""""""""BASIC SETTINGS"""""""""""""""""""""""""""""
@@ -28,7 +30,9 @@ filetype plugin indent on " required!
 
 " Printing hardcopies
     set background=dark " If you use a dark background
-    set printoptions=number:y
+    if !has('nvim')
+        set printoptions=number:y
+    endif
 
 " Line numbers
     set relativenumber

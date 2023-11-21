@@ -19,7 +19,7 @@ files=(
 function post_hooks() {
     case $1 in
         vimrc)
-            [ -d "$HOME/.vim/bundle/vundle" ] || git clone "https://github.com/gmarik/vundle.git" "$HOME/.vim/bundle/vundle"
+            [ -d "$HOME/.vim/bundle/Vundle.vim" ] || git clone "https://github.com/VundleVim/Vundle.vim.git" "$HOME/.vim/bundle/Vundle.vim"
             ;;
     esac
 }
