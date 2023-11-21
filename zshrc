@@ -10,7 +10,7 @@ unset ZSHRC_DIR
 # ZSHRC_LOCAL_DIR is not expected to be a symlink
 ZSHRC_LOCAL_DIR=~/.zshrc.local.d
 if [ -d "$ZSHRC_LOCAL_DIR" ]; then
-    for script in $(find "$ZSHRC_DIR" -name '*.sh' | sort); do
+    for script in $(find "$ZSHRC_LOCAL_DIR" -name '*.sh' | sort); do
         source "$script"
     done
 fi
